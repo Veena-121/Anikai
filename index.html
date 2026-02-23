@@ -1,22 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Anime Recommender</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ani.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>🎌 Anime Recommender</h1>
-    
-    <input type="text" id="animeInput" placeholder="Enter anime name...">
-    <button id="searchBtn">Search</button>
-    
-    <h2 id="resultsTitle"></h2>
-    <div id="results" class="results-grid"></div>
-  </div>
 
-  <script src="script.js"></script>
+
+<div id="listView">
+  <header>
+    <h1>🍥 Anime Recommender</h1>
+    <input id="searchInput" placeholder="Search anime..." />
+    <button id="homeBtn" class="home-btn"> Home</button>
+    <button id="diaryBtn" class="home-btn">Diary</button>
+
+    <div class="filters">
+      <select id="genreSelect">
+        <option value="">All Genres</option>
+      </select>
+      <select id="yearSelect">
+        <option value="">Any Year</option>
+      </select>
+      <select id="typeSelect">
+        <option value="">Any Type</option>
+        <option value="tv">TV</option>
+        <option value="movie">Movie</option>
+        <option value="ova">OVA</option>
+      </select>
+      <button id="applyFilters">Apply</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="animeGrid" class="anime-container"></div>
+  </main>
+</div>
+
+<!-- DETAILS VIEW -->
+<div id="detailsView" class="hidden">
+  <button id="backBtn">← Back</button>
+  <div id="animeHero"></div>
+  <h2 class="section-title">Similar Anime</h2>
+  <div id="similarAnime" class="anime-container"></div>
+</div>
+
+<!-- DIARY MODAL -->
+<div id="diaryModal" class="hidden">
+  <div class="diary-content">
+
+    <!-- STICKY HEADER -->
+    <div class="diary-header">
+      <button id="diaryCloseTop" class="diary-close-top">✖</button>
+      <h2>Anime Diary</h2>
+      <div class="diary-lists-header">
+        <span>Watching</span>
+        <span>Watched</span>
+        <span>Plan to Watch</span>
+      </div>
+    </div>
+
+    <!-- scrollable lists -->
+    <div class="diary-lists">
+      <div>
+        <ul id="watchingList" class="diary-ul"></ul>
+      </div>
+      <div>
+        <ul id="watchedList" class="diary-ul"></ul>
+      </div>
+      <div>
+        <ul id="planList" class="diary-ul"></ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="ani.js"></script>
 </body>
-</html>
+</html>                                                      
